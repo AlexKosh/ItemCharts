@@ -1,10 +1,5 @@
     var myConfig = {
         "type":"line",
-        "csv":{
-            "url":"export.csv",
-            
-
-        }
     };
 
 
@@ -12,5 +7,5 @@
         id: 'myChart',
         data: myConfig,
         height: 500,
-        width: "100%"
+        width: 700
     });
