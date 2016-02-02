@@ -6,6 +6,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
     <!--angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js" type="text/javascript"></script>
+    <!--papaParse-->
+    <script src="../js/papaparse.min.js" type="text/javascript"></script>
     <!--bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -21,6 +23,7 @@
             <h3>Выбрать данные:</h3>
             <button class="btn btn-default" ng-click="vm.changedData()">changed</button>
             <button class="btn btn-default" ng-click="vm.defaultData()">default</button>
+            <button class="btn btn-success" ng-disabled="vm.exportData == false" ng-click="vm.chooseExportData()">export</button>
         </div>
         <div class="col-lg-8">
             <h3>vm.data.labels:</h3>
@@ -29,7 +32,22 @@
             <p ng-repeat="ds in vm.data.datasets">{{ds.data}}</p>
         </div>
     </div>
-    
+    <div class="row">
+        <div class="col-lg-3">
+            <h3>Открыть файл</h3>
+            <input type="file" id="fileOpener" ng-model="vm.file" />
+            <button class="btn btn-default" ng-click="vm.tryParseFile()">Check</button>
+        </div>
+        <div class="col-lg-9">
+            <ol>
+                <li ng-repeat="rd in vm.exportData">
+                    {{rd}}
+                </li>
+            </ol>
+            
+        </div>
+    </div>
+
 </body>
 
 </html>
