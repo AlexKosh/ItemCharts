@@ -16,13 +16,19 @@
 </head>
 <body class="container" ng-controller="HomeController as vm">
     <div class="row">
-        <canvas id="myChart" width="1000" height="400"></canvas>
+        <div id="leftCanvasHolder" class="col-lg-6">
+            
+        </div>
+        <div id="rightCanvasHolder" class="col-lg-offset-1 col-lg-5">
+            
+        </div>        
     </div>
     <div class="row">
         <div class="col-lg-4">
             <h3>Выбрать данные:</h3>
-            <button class="btn btn-default" ng-click="vm.changedData()">changed</button>
-            <button class="btn btn-default" ng-click="vm.defaultData()">default</button>
+            <button class="btn btn-default" ng-click="vm.chooseChangedData()">changed</button>
+            <button class="btn btn-default" ng-click="vm.chooseDefaultData()">default</button>
+            <button class="btn btn-warning" ng-click="vm.clearCanva()">clear</button>
             <button class="btn btn-success" ng-disabled="vm.exportData == false" ng-click="vm.chooseExportData()">export</button>
         </div>
         <div class="col-lg-8">
