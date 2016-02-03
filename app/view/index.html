@@ -6,6 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
     <!--angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js" type="text/javascript"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js" type="text/javascript"></script>
     <!--papaParse-->
     <script src="../js/papaparse.min.js" type="text/javascript"></script>
     <!--bootstrap-->
@@ -13,47 +14,15 @@
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!--app.js-->
     <script src="../js/app.js" type="text/javascript"></script>
+    <script src="../js/controllers/model.js" type="text/javascript"></script>
+    <script src="../js/controllers/main.js" type="text/javascript"></script>
 </head>
-<body class="container" ng-controller="HomeController as vm">
-    <div class="row">
-        <div id="leftCanvasHolder" class="col-lg-6">
-            
-        </div>
-        <div id="rightCanvasHolder" class="col-lg-offset-1 col-lg-5">
-            
-        </div>        
-    </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <h3>Выбрать данные:</h3>
-            <button class="btn btn-default" ng-click="vm.chooseChangedData()">changed</button>
-            <button class="btn btn-default" ng-click="vm.chooseDefaultData()">default</button>
-            <button class="btn btn-warning" ng-click="vm.clearCanva()">clear</button>
-            <button class="btn btn-success" ng-disabled="vm.exportData == false" ng-click="vm.chooseExportData()">export</button>
-        </div>
-        <div class="col-lg-8">
-            <h3>vm.data.labels:</h3>
-            <p>{{vm.data.labels}}</p>
-            <h3>vm.data.datasets.data:</h3>
-            <p ng-repeat="ds in vm.data.datasets">{{ds.data}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-3">
-            <h3>Открыть файл</h3>
-            <input type="file" id="fileOpener" ng-model="vm.file" />
-            <button class="btn btn-default" ng-click="vm.tryParseFile()">Check</button>
-        </div>
-        <div class="col-lg-9">
-            <ol>
-                <li ng-repeat="rd in vm.exportData">
-                    {{rd}}
-                </li>
-            </ol>
-            
-        </div>
-    </div>
-
+<body class="container" ng-controller="MainController as vm">
+    <div ng-view></div>
+    
+    <br />
+    <a class="btn btn-success" href="/app/view/index.html">A-Fina</a>
+    <a class="btn btn-info" href="#/main">Main</a>
+    <a class="btn btn-info" href="#/model">Model</a>    
 </body>
-
 </html>
